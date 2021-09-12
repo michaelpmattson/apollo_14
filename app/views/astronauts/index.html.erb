@@ -1,7 +1,8 @@
 <h3>Astronauts:</h3>
 <% @astronauts.each do |astronaut|%>
   <section id="astronaut-<%= astronaut.id %>">
-    <h4><%= astronaut.details %></h4>
+    <h4>Name: <%= astronaut.name %>, Age: <%= astronaut.age %>, Job: <%= astronaut.job %>, Total Time in Space: <%= astronaut.total_time_in_space %> days</h4>
+
     <h5>Missions:</h5>
     <ul>
       <% astronaut.missions.alpha_sort.each do |mission| %>

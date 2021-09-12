@@ -16,12 +16,26 @@ describe Astronaut, type: :model do
     @neil = Astronaut.create!(name: 'Neil Armstrong', age: 37, job: 'Commander')
     @buzz = Astronaut.create!(name: 'Buzz Aldrin', age: 39, job: 'Lunar module pilot')
     @mike = Astronaut.create!(name: 'Michael Collins', age: 39, job: 'Command module pilot')
+
+    @apollo13   = Mission.create!(title: "Apollo 13", time_in_space: 10)
+    @capricorn4 = Mission.create!(title: "Capricorn 4", time_in_space: 20)
+    @gemini7    = Mission.create!(title: "Gemini 7", time_in_space: 25)
+
+    @apollo13.astronauts << @mike
+    @apollo13.astronauts << @buzz
+
+    @capricorn4.astronauts << @mike
+    @capricorn4.astronauts << @neil
+
+    @gemini7.astronauts << @mike
+    @gemini7.astronauts << @neil
+    @gemini7.astronauts << @buzz
   end
 
   describe '#instance methods' do
-    describe '#details' do
-      it 'returns a string of the name age and job' do
-        expect(@neil.details).to eq("Name: Neil Armstrong, Age: 37, Job: Commander")
+    describe '#total_time_in_space' do
+      it 'returns total time in space' do
+        expect(@neil.total_time_in_space).to eq(45)
       end
     end
   end

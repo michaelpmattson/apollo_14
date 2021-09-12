@@ -7,4 +7,8 @@ class Mission < ApplicationRecord
   def self.alpha_sort
     order(:title)
   end
+
+  def self.total_time_in_space
+    sum(:time_in_space)
+  end
 end

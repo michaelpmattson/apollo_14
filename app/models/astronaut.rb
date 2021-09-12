@@ -4,8 +4,8 @@ class Astronaut < ApplicationRecord
 
   validates_presence_of :name, :age, :job
 
-  def details
-    "Name: #{name}, Age: #{age}, Job: #{job}"
+  def total_time_in_space
+    missions.total_time_in_space
   end
 
   def self.average_age
