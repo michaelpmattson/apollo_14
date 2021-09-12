@@ -35,6 +35,7 @@ RSpec.describe 'the astronauts index page' do
     end
 
     it 'shows an alphabetical list of missions for each astronaut' do
+      save_and_open_page
       within "#astronaut-#{@neil.id}" do
         expect("Capricorn 4").to appear_before("Gemini 7")
       end
