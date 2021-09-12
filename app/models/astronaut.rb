@@ -7,4 +7,8 @@ class Astronaut < ApplicationRecord
   def details
     "Name: #{name}, Age: #{age}, Job: #{job}"
   end
+
+  def self.average_age
+    average(:age).to_f.round(2)
+  end
 end

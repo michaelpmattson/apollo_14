@@ -12,12 +12,24 @@ describe Astronaut, type: :model do
     it { should have_many(:missions).through(:astronaut_missions) }
   end
 
+  before(:each) do
+    @neil = Astronaut.create!(name: 'Neil Armstrong', age: 37, job: 'Commander')
+    @buzz = Astronaut.create!(name: 'Buzz Aldrin', age: 39, job: 'Lunar module pilot')
+    @mike = Astronaut.create!(name: 'Michael Collins', age: 39, job: 'Command module pilot')
+  end
+
   describe '#instance methods' do
     describe '#details' do
       it 'returns a string of the name age and job' do
-        neil = Astronaut.create!(name: 'Neil Armstrong', age: 37, job: 'Commander')
+        expect(@neil.details).to eq("Name: Neil Armstrong, Age: 37, Job: Commander")
+      end
+    end
+  end
 
-        expect(neil.details).to eq("Name: Neil Armstrong, Age: 37, Job: Commander")
+  describe '.class methods' do
+    describe '.average_age' do
+      it 'calculates average age' do
+        expect(Astronaut.average_age).to eq(38.33)
       end
     end
   end

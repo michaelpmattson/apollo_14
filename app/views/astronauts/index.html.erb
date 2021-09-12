@@ -1,3 +1,6 @@
+<h3>Astronauts:</h3>
 <% @astronauts.each do |astronaut|%>
-  <%= astronaut.details %>
+  <p><%= astronaut.details %></p><%= astronaut.details %>
 <% end %>
+
+<p>Average Age: <%= @astronauts.average_age %></p>
