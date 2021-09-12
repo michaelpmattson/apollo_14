@@ -1,4 +1,4 @@
 class AstronautMission < ApplicationRecord
-  has_many :astronauts
-  has_many :missions
+  belongs_to :astronaut
+  belongs_to :mission
 end
